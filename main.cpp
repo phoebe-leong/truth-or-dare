@@ -3,12 +3,11 @@
 #include <array>
 #include <stdlib.h>
 #include <time.h>
-using namespace std;
 
 void truth_or_dare();
 
 int shotsTaken = 0;
-string truths[7] = {
+std::string truths[7] = {
     "Have you ever told a secret you swore you wouldn't?",
     "What are you currently wearing?",
     "Favourite colour?",      
@@ -17,7 +16,7 @@ string truths[7] = {
     "What's your secret hobby?",
     "If you could be invisible for a day what would be the first thing you would do?"
     };
-string dares[7] = {
+std::string dares[7] = {
     "Shout something really loud in a crowded place randomly.",
     "Tell the last person you texted that you love them.",
     "Take an embarrassing photo of yourself and post it online.",
@@ -28,24 +27,24 @@ string dares[7] = {
 };
 
 int close ( ) {
-    cout << "Press enter to close the program.\n";
-    cin.ignore ( );
-    cin.get ( );
+    std::cout << "Press enter to close the program.\n";
+    std::cin.ignore ( );
+    std::cin.get ( );
     return 0;
 }
 
 void results ( ) {
-    cout << "You took " << shotsTaken << " shots.\n\n";
+    std::cout << "You took " << shotsTaken << " shots.\n\n";
 }
 
     void truth ( ) {
         int randomNumber = rand() % 7;
-        string input;
+        std::string input;
 
-        string randomTruth = truths[randomNumber];
+        std::string randomTruth = truths[randomNumber];
 
-        cout << randomTruth << "\n";
-        cin >> input;
+        std::cout << randomTruth << "\n";
+        std::cin >> input;
 
         if (input == "p") {
             shotsTaken++;
@@ -60,11 +59,11 @@ void results ( ) {
 
     void dare ( ) {
         int randomNumber = rand() % 7;
-        string input;
-        string randomDare = dares[randomNumber];
+        std::string input;
+        std::string randomDare = dares[randomNumber];
 
-        cout << randomDare << "\n";
-        cin >> input;
+        std::cout << randomDare << "\n";
+        std::cin >> input;
 
         if (input == "done") {
             truth_or_dare();
@@ -81,10 +80,10 @@ void results ( ) {
 
 void truth_or_dare ( ) {
 
-    string tod;
+    std::string tod;
 
-    cout << "Truth or Dare?\n";
-    cin >> tod;
+    std::cout << "Truth or Dare?\n";
+    std::cin >> tod;
 
     if (tod == "truth") {
         truth();
